@@ -38,6 +38,45 @@ Page({
 
 
   },
+  delete(e) {
+    var that = this;
+    console.log(e);
+    var index = e.currentTarget.dataset.index;
+
+    var item = this.data.routeList[index];
+
+    console.log(item);
+    var path_id = item.id;
+
+    wx.showModal({
+      title: '提示',
+      content: '确认删除',
+      confirmText: "删除",
+      confirmColor: '#e63700',
+      success: function(e) {
+        cisdom.request("pathDel", {
+          path_id: path_id
+        }, {
+          success(e) {
+            cisdom.request("pathList", {}, {
+              success(e) {
+                that.setData({
+                  routeList: e.data
+                });
+              },
+              fail(e) {
+
+              }
+            })
+
+          }
+        });
+      }
+    })
+
+
+
+  },
   addroute(e) {
     wx.navigateTo({
       url: 'addroute',

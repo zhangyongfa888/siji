@@ -60,3 +60,22 @@
   flex-direction: row;
   align-items: center;
 }
+
+
+
+.upload-title {
+  font-size: 30rpx;
+  color: #444;
+  margin: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.upload-img {
+  margin-top: 40rpx;
+  margin-left: 75rpx;
+  width: 600rpx;
+  text-align: center;
+  height: 400rpx;
+}

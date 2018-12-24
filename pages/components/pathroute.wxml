@@ -12,7 +12,7 @@
     <text class='name' bindtap='chooseEnd' placeholder='收货地'>{{end.length==0?"请选择收货地":end}}</text>
   </view>
 
-  <view class='delete' hidden='{{!isDeleteModel}}'>
+  <view class='delete' hidden='{{!isDeleteModel}}' bindtap='delete'>
     <image src='http://res.zhangyongfa888.site/ic_delete_red.png' mode='aspectFit' style='width:35rpx;height:35rpx;margin:10rpx;'></image>
     <text>删除</text>
   </view>

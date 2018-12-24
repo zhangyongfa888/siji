@@ -1,5 +1,7 @@
 // pages/tools/actspread.js
 var cisdom = require("../../utils/cisdom.js");
+var utils = require("../../utils/util.js");
+
 var name = '';
 var phone = '';
 Page({
@@ -8,10 +10,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isHasInfo: false,
+    isHasInfo: true,
     isChecked: false,
     isShowAgreement: false,
-    phone: ""
+    phone: "",
+    firstPic: '',
+    secondPic: '',
+    time: '' //上一张照片提交的时间
   },
   inputName(e) {
     console.log(e);
@@ -19,6 +24,22 @@ Page({
   },
   inputPhone(e) {
     phone = e.detail.value;
+  },
+
+  checkDetails: function(e) {
+
+    wx.navigateTo({
+      url: 'actspread_details',
+    })
+
+  },
+  uploadFirst: function(e) {
+    //上传照片
+
+  },
+  uploadSecond: function(e) { //第二次上传需要对比上次提交照片的时间
+
+
   },
   /**
    * 生命周期函数--监听页面加载
@@ -32,7 +53,10 @@ Page({
         that.setData({
           isHasInfo: e.data.is_agree == 1,
           isShowAgreement: e.data.is_agree != 1,
-          phone: e.data.mobile
+          phone: e.data.mobile,
+          firstPic: e.data.firstPic,
+          secondPic: e.data.secondPic,
+          time: e.data.time
         })
 
       },

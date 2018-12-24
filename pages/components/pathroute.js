@@ -6,7 +6,7 @@ Component({
   properties: {
     start: String,
     end: String,
-    isDeleteModel:Boolean
+    isDeleteModel: Boolean
   },
 
   /**
@@ -15,7 +15,7 @@ Component({
   data: {
     startAddress: {},
     endAddress: {},
-    isDeleteModel:false
+    isDeleteModel: false
 
   },
 
@@ -34,6 +34,10 @@ Component({
       this.triggerEvent('chooseAddress', "end")
 
     },
+    delete(e) {
+      this.triggerEvent('delete')
+
+    }
 
   }
 })

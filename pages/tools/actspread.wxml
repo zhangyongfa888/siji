@@ -25,12 +25,13 @@
 
   </view>
   <view wx:else>
-
-    <view >
+    <view class='upload-title'>
       <text>上传车贴照片</text>
-      <text>查看明细</text>
-
+      <text bindtap='checkDetails'>查看明细</text>
     </view>
+    <image bindtap='uploadFirst' src='{{firstPic.length==0?"http://res.zhangyongfa888.site/ic_spread_add.png":"firstPic"}}' class='upload-img' mode='aspectFit'></image>
+
+    <image bindtap='uploadSecond' src='{{secondPic.length==0?"http://res.zhangyongfa888.site/ic_spread_add.png":"secondPic"}}' hidden='{{firstPic.length==0}}' class='upload-img' mode='aspectFit'></image>
 
   </view>
 

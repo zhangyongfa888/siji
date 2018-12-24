@@ -11,7 +11,7 @@
         <text>收货地：{{item.take_name}}</text>
       </view> -->
 
-      <path start='{{item.send_name}}' end='{{item.take_name}}' isDeleteModel="true"></path>
+      <path start='{{item.send_name}}' end='{{item.take_name}}' isDeleteModel="true" bind:delete='delete' data-index='{{index}}' ></path>
 
 
     </view>

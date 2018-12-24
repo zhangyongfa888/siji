@@ -29,7 +29,11 @@
     "pages/tools/settingpwd",
     "pages/tools/about",
     "pages/tools/rule",
-    "pages/index/chooseType"
+    "pages/index/chooseType",
+    "pages/route/chooseAddress",
+    "pages/tools/submitQuestion",
+    "pages/tools/checkQuestions",
+    "pages/tools/actspread_details"
   ],
   "window": {
     "backgroundTextStyle": "light",
