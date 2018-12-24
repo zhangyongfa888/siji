@@ -1,0 +1,51 @@
+<!--pages/index/chooseType.wxml-->
+<view class='parent' >
+  <view wx:for='{{carlist}}' wx:key='index'>
+    <view class='item' bindtap='chooseListItem' data-id='{{item.id}}'>
+
+      <view class='content'>
+        <text>{{item.name}}</text>
+        <text>{{item.length}}</text>
+      </view>
+      <image src='{{item.pic}}' mode='aspectFit' class='img'></image>
+    </view>
+
+
+  </view>
+</view>
+
+<view class='dialog' hidden='{{!(showType)}}' catchtouchmove="ture"> </view>
+
+<view class='showType' hidden='{{!(showType)}}' catchtouchmove="ture">
+
+  <view class='title'>
+
+    <text>车型车长</text>
+    <image bindtap='cancel' class='cancel' src='http://res.zhangyongfa888.site/ic_pop_cancle.png' mode='aspectFit'></image>
+  </view>
+
+  <text class='category-title'>车长（m）</text>
+  <view class='carlength'>
+
+    <view wx:for="{{carlength}}" wx:key='index'>
+      <view class='typeitem {{item.isChecked?"checked":""}}' bindtap='chooseLength' data-index='{{index}}'>
+        <text>{{item.length}}</text>
+      </view>
+    </view>
+
+
+  </view>
+
+  <text class='category-title'>车型</text>
+  <view class='cartype'>
+
+    <view wx:for="{{cartype}}" wx:key='index'>
+      <view class='typeitem {{item.isChecked?"checked":""}}' bindtap='chooseType' data-index='{{index}}'>
+        <text>{{item.carTypeName}}</text>
+      </view>
+    </view>
+
+  </view>
+
+  <button bindtap='confirm' class='btn'>确定</button>
+</view>

@@ -1,0 +1,2 @@
+<!--pages/index/authorize.wxml-->
+<login type='{{type}}' bind:bindgetuserinfo='bindgetuserinfo'></login>

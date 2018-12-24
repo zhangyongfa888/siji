@@ -1,0 +1,14 @@
+<!--pages/userinfo/authinfo.wxml-->
+<view class='parent'>
+  <view wx:for='{{list}}' wx:key='index'>
+
+    <view class='item' bindtap='onItemClick' data-index='{{index}}'>
+      <image class='img' src='{{item.pic}}' mode='aspectFit'></image>
+      <text class='txt'>{{item.name}}</text>
+    </view>
+
+  </view>
+
+
+
+</view>

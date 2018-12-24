@@ -1,0 +1,62 @@
+/* pages/tools/actspread.wxss */
+
+.parent {
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.img {
+  text-align: center;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.line {
+  background: white;
+  border-bottom: 1rpx solid #dcdcdc;
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.hasInfo {
+  margin: 10rpx;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.input {
+  width: 600rpx;
+  font-size: 28rpx;
+  margin-left: 10rpx;
+}
+
+.imgbox {
+  margin: 10rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.confirm {
+  width: 700rpx;
+  left: 25rpx;
+  position: fixed;
+  bottom: 80rpx;
+  background-color: #e67000;
+  color: white;
+}
+
+.agree {
+  font-size: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

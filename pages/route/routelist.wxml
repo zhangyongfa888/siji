@@ -1,0 +1,27 @@
+<!--pages/route/routelist.wxml-->
+<view class='parent' style='height:{{height}}px'>
+
+
+  <view wx:for='{{routeList}}' wx:key='index'>
+
+    <view class='item'>
+      <text class='name'>{{item.name}}</text>
+      <!-- <view class='address'>
+        <text>发货地：{{item.send_name}}</text>
+        <text>收货地：{{item.take_name}}</text>
+      </view> -->
+
+      <path start='{{item.send_name}}' end='{{item.take_name}}' isDeleteModel="true"></path>
+
+
+    </view>
+
+
+
+  </view>
+
+</view>
+
+
+
+<view class='add' bindtap='addroute'>添加常用路线</view>

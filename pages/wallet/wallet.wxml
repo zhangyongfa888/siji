@@ -1,0 +1,37 @@
+<view>
+  <view class='banner'>
+
+    <text class='banlance'> {{money}}</text>
+    <text class='tips'>可提现余额</text>
+    <text class='checkingmoney'>审核中余额:￥{{audit_money}}</text>
+  </view>
+
+
+  <view class='item' bindtap='toNext' id='withdraw'>
+    <image src='http://res.zhangyongfa888.site/ic_with_draw.png' mode='aspectFit' class='icon'></image>
+    <text class='text'>提现</text>
+    <image src='http://res.zhangyongfa888.site/ic_arrow.png' mode='aspectFit' class='arrow'></image>
+  </view>
+  <view class='item' bindtap='toNext' id='tradedetails'>
+    <image src='http://res.zhangyongfa888.site/ic_wallet_banlance.png' mode='aspectFit' class='icon'></image>
+    <text class='text'>交易明细</text>
+    <image src='http://res.zhangyongfa888.site/ic_arrow.png' mode='aspectFit' class='arrow'></image>
+  </view>
+    <view style='border: 5px solid #f5f5f5'></view>
+
+  <view class='item' bindtap='toNext' id='bankinfo'>
+    <image src='http://res.zhangyongfa888.site/ic_wallet_bank.png' mode='aspectFit' class='icon'></image>
+    <text class='text'>银行卡信息</text>
+    <image src='http://res.zhangyongfa888.site/ic_arrow.png' mode='aspectFit' class='arrow'></image>
+  </view>
+  <view class='item' bindtap='toNext' id='recharge'>
+    <image src='http://res.zhangyongfa888.site/ic_recharge_money.png' mode='aspectFit' class='icon'></image>
+    <text class='text'>充值</text>
+    <image src='http://res.zhangyongfa888.site/ic_arrow.png' mode='aspectFit' class='arrow'></image>
+  </view>
+  <!-- <view class='item' bindtap='toNext' id='bankinfo'>
+    <image src='../../../src/ic_recharge_money.png' mode='aspectFit' class='icon'></image>
+    <text class='text'>银行卡信息</text>
+    <image src='http://res.zhangyongfa888.site/ic_arrow.png' mode='aspectFit' class='arrow'></image>
+  </view> -->
+</view>

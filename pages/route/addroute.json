@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "path": "../components/pathroute"
+  },
+  "navigationBarTitleText": "添加常用路线"
+}

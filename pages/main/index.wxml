@@ -1,0 +1,23 @@
+<!--pages/main/index.wxml-->
+<view>
+
+  <view class='bg'>
+    <text class='info'>为积极响应国务院关税税则委员会关于对原产于美国的汽车暂停加征关税的公告，北京梅赛德斯-奔驰销售服务有限公司宣布：即日起下调梅赛德斯-奔驰在中国大陆销售的全部美国进口车型厂家建议零售价，立即生效以提前惠益广大消费者。</text>
+
+    <view class='share'>
+      <view class='sharetxt'>立即分享</view>
+      <view>
+        <button class='shareimg1' open-type='share'>
+          <image bindtap='shareToWx' src='../../src/ic_grab_share_wx.png' mode='aspectFit'></image>
+        </button>
+        <!-- <button class='shareimg2' open-type='share' > -->
+        <!-- </button> -->
+      </view>
+
+    </view>
+
+  </view>
+</view>
+<view class='route' bindtap='route'>
+  <text class='txt'>常用路线</text>
+</view>

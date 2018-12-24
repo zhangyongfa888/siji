@@ -1,0 +1,46 @@
+<!--pages/tools/actspread.wxml-->
+<!-- <text>pages/tools/actspread.wxml</text> -->
+<view class='parent'>
+  <view wx:if='{{!isHasInfo}}'>
+    <view class='hasInfo'>
+      <view class='line'>
+        <image src='http://res.zhangyongfa888.site/ic_head.png' mode='aspectFit' class='img'></image>
+        <input bindinput='inputName' class='input' placeholder='请输入真实姓名'></input>
+      </view>
+
+      <view class='line'>
+        <image src='http://res.zhangyongfa888.site/ic_phone.png' mode='aspectFit' class='img'></image>
+        <text maxlength='12' class='input' placeholder='请输入手机号'>{{phone}}</text>
+      </view>
+
+      <view class='agree'>
+        <image class='imgbox' bindtap='agree' src='http://res.zhangyongfa888.site/{{isChecked?"ic_spread_checked.png":"ic_spread_unchecked.png"}}' mode='aspectFit'></image>
+        <text>我已阅读并同意</text>
+        <text style='color:#e63' bindtap='agreement'>《货运宝车身贴合作协议》</text>
+      </view>
+
+      <button bindtap='submitInfo' class='confirm'>确定</button>
+    </view>
+
+
+  </view>
+  <view wx:else>
+
+    <view >
+      <text>上传车贴照片</text>
+      <text>查看明细</text>
+
+    </view>
+
+  </view>
+
+</view>
+
+
+<modal hidden='{{!isShowAgreement}}' title="合作协议" confirm-text="我同意" cancel-text="不同意" bindconfirm='bindconfirm' bindcancel='cancel'>
+
+  <scroll-view style='height:800rpx;' scroll-y='true'>
+    <text style='color:#000;'>甲方因经营需要，借助乙方车身作为品牌推广渠道，以车帖形式宣传货运宝产品。经双方协商，订立以下协议：\n一、协议内容\n1.合作期限：自车身贴安装后30/60/90天，依此类推；\n2.内容：按甲方指导意见在乙方车身上安装印有“货运宝”字样的宣传车贴；\n3.乙方将已贴车贴的车辆照片发送至甲方指定平台，并贴满约定期限后再次上传照片。甲方审核通过后，由甲方向乙方支付奖励费用，费用将支付到乙方货运宝平台的余额账户内，由乙方提现获得。\n二、乙方的责任与义务\n1.乙方同意接受甲方指导，以甲方规定的方式，将印有“货运宝”字样的宣传车贴贴置于车身。\n2.乙方保证向甲方提供的手机号、个人身份信息、车辆信息的真实性。\n3.乙方需确保合作期间，车贴的安全可靠、完整、整洁，具备可辨识性，如因车体损坏不能正常使用的，乙方应尽快将车体修复完毕，并通知甲方工作人员进行车贴更换。\n4.合作期间，若甲方要求调整车贴样式，乙方要协助甲方做好车贴更换工作，由甲方承担车贴制作等费用。\n三、终止协议及无法领取奖励的情况\n1.乙方擅自去除车贴.\n2.乙方在车贴损坏情况下未及时通知甲方.\n3.乙方故意损坏车贴.\n4.乙方故意遮盖车贴画面，破坏车贴完整性.\n5.乙方安装未满期限.\n6.填写虚假信息.\n发生以上情况，甲方有权根据实际情况终止奖励发放。\n四、特别条款\n甲方不对协议以外任何费用承担法律责任。\n甲方对车身贴合作协议保留最终解释权。\n\n\n</text>
+  </scroll-view>
+
+</modal>

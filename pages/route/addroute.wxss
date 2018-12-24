@@ -1,0 +1,28 @@
+/* pages/route/addroute.wxss */
+
+.name {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.item {
+  border-bottom: 1rpx solid #dcdcdc;
+  border-right: 1rpx solid #dcdcdc;
+  border-radius: 10rpx;
+  margin: 10rpx;
+  padding: 20rpx;
+  background: white;
+}
+
+.add {
+  width: 100%;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  color: white;
+  position: fixed;
+  padding: 30rpx 0 30rpx 0;
+  font-size: 30rpx;
+  bottom: 1rpx;
+  text-align: center;
+  background-color: #e36700;
+}

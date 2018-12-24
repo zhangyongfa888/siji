@@ -1,0 +1,88 @@
+/* pages/main/index.wxss */
+
+.bg {
+  background-size: cover;
+  -moz-background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-image: url('http://res.zhangyongfa888.site/main_grab_bg.png');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info {
+  letter-spacing: 8rpx;
+  text-indent: 70rpx;
+  line-height: 70rpx;
+  margin: 10rpx 40rpx 10rpx 100rpx;
+  text-align: right;
+  font-size: 18px;
+  color: #f78312;
+}
+
+.sharetxt {
+  color: #f78312;
+  font-size: 20px;
+  padding-bottom: 10rpx;
+  margin-right: 10rpx;
+}
+
+.share {
+  margin-right: 50rpx;
+  text-align: right;
+}
+
+.shareimg1 {
+  background: transparent;
+  background-size: cover;
+  -moz-background-size: cover;
+  background-image: url("https://open.weixin.qq.com/zh_CN/htmledition/res/assets/res-design-download/icon64_wx_logo.png");
+  position: fixed;
+  right: 70px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.shareimg2 {
+  background: transparent;
+  background-size: cover;
+  -moz-background-size: cover;
+  background-image: url("https://open.weixin.qq.com/zh_CN/htmledition/res/assets/res-design-download/icon_res_download_moments.png");
+  position: fixed;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.shareimg1::after {
+  border: 0rpx solid transparent;
+}
+
+.shareimg2::after {
+  border: 0rpx solid transparent;
+}
+
+.route {
+  width: 30%;
+  margin-right: 35%;
+  margin-left: 35%;
+  position: fixed;
+  bottom: 30rpx;
+  font-size: 15px;
+  padding: 10rpx;
+  color: #fff;
+  border-radius: 30rpx;
+  background: #f78312;
+  display: flex;
+  justify-content: center;
+}
+
+

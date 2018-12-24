@@ -1,0 +1,17 @@
+<!--pages/userinfo/carinfo.wxml-->
+<view class='parent'>
+
+  <view class='line'>
+    <text class='title'>车牌颜色:</text>
+    <text class='content'>{{userinfo.color}}</text>
+  </view>
+  <view class='line'>
+    <text class='title'>车牌号码:</text>
+    <text class='content'>{{userinfo.plate_number}}</text>
+  </view>
+  <view class='line'>
+    <text class='title'>车辆类型:</text>
+    <text class='content'>{{userinfo.type}}</text>
+  </view>
+ 
+</view>

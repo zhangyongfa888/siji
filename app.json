@@ -1,0 +1,71 @@
+{
+  "pages": [
+    "pages/main/index",
+    "pages/main/source",
+    "pages/main/order",
+    "pages/main/mine",
+    "pages/index/authorize",
+    "pages/route/addroute",
+    "pages/route/routelist",
+    "pages/index/bindphone",
+    "pages/tools/standar",
+    "pages/tools/actspread",
+    "pages/tools/contact",
+    "pages/tools/setting",
+    "pages/userinfo/userinfo",
+    "pages/userinfo/carinfo",
+    "pages/userinfo/authinfo",
+    "pages/userinfo/index",
+    "pages/index/register",
+    "pages/wallet/wallet",
+    "pages/wallet/recharge",
+    "pages/wallet/bankinfo",
+    "pages/wallet/cardinfo",
+    "pages/wallet/withdraw",
+    "pages/wallet/tradedetails",
+    "pages/wallet/setpassword",
+    "pages/wallet/bindbankcard",
+    "pages/tools/message",
+    "pages/tools/settingpwd",
+    "pages/tools/about",
+    "pages/tools/rule",
+    "pages/index/chooseType"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ec6700",
+    "navigationBarTitleText": "货运宝",
+    "navigationBarTextStyle": "ffffff"
+  },
+  "tabBar": {
+    "selectedColor": "#ec6700",
+    "color": "#666666",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "selectedIconPath": "src/ic_tab_qiangdan_checked.png",
+        "iconPath": "src/ic_tab_qiangdan.png",
+        "pagePath": "pages/main/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "src/ic_tab_order_source_checked.png",
+        "iconPath": "src/ic_tab_order_source.png",
+        "pagePath": "pages/main/source",
+        "text": "货源"
+      },
+      {
+        "selectedIconPath": "src/ic_tab_order_checked.png",
+        "iconPath": "src/ic_tab_order.png",
+        "pagePath": "pages/main/order",
+        "text": "订单"
+      },
+      {
+        "selectedIconPath": "src/ic_tab_mine_checked.png",
+        "iconPath": "src/ic_tab_mine.png",
+        "pagePath": "pages/main/mine",
+        "text": "我的"
+      }
+    ]
+  }
+}

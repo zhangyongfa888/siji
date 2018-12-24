@@ -1,0 +1,148 @@
+// pages/userinfo/index.js
+var util = require("../../utils/util.js");
+var cisdom = require("../../utils/cisdom.js");
+var app = getApp();
+
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    userinfo: {},
+    list: [{
+      "pic": util.getResource("ic_userinfo_info.png"),
+      "name": "个人信息"
+    }, {
+      "pic": util.getResource("ic_userinfo_car.png"),
+      "name": "车辆信息"
+    }, {
+      "pic": util.getResource("ic_userinfo_pic.png"),
+      "name": "照片信息"
+    }]
+  },
+  chooseImg: function(e) {
+    wx.chooseImage({
+      count: 1,
+      success: function(res) {
+        console.log(res);
+        var tempFilePaths = res.tempFilePaths;
+        // wx.saveFile({
+        //   tempFilePath: tempFilePaths[0],
+        //   success: function(e) {
+        //     console.log("saveFile", e);
+        //   }
+        // })
+
+        wx.uploadFile({
+          url: 'http://cisdom.free.idcfengye.com/wx/index.php',
+          filePath: tempFilePaths[0],
+          name: 'file',
+          success: function(e) {
+
+          },
+          complete: function(e) {
+            console.log("-----", e)
+          }
+        })
+        wx.showToast({
+          title: '需要配置下载/上传服务器',
+          icon: 'none'
+        })
+
+
+        // wx.uploadFile({
+        //   url: cisdom.getUrl('upload'),
+        //   filePath: tempFilePaths[0],
+        //   name: "",
+
+        // wx.getSavedFileList({
+        //   success: function(res) {
+        //     console.log(res);
+        //   },
+        //   fail: function(res) {},
+        //   complete: function(res) {},
+        // })
+        // })
+
+
+      },
+    })
+
+
+  },
+  onItemClick: function(e) {
+    console.log(e);
+    var index = e.currentTarget.dataset.index;
+    wx.navigateTo({
+      url: index == 0 ? 'userinfo' : index == 1 ? 'carinfo' : 'authinfo',
+    })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+
+    var that = this;
+    var pic = app.globalData.userInfo.avatarUrl;
+    wx.getStorage({
+      key: 'info',
+      success: function(res) {
+        console.log(res);
+        res.data['pic'] = res.data.pic == '' ? pic : res.data.pic;
+        that.setData({
+          userinfo: res.data
+        });
+      },
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+
+  }
+})

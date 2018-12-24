@@ -1,0 +1,25 @@
+/* pages/userinfo/carinfo.wxss */
+
+.parent {
+  display: flex;
+  flex-direction: column;
+}
+
+.line {
+  border-bottom: 1rpx solid #dcdcdc;
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+  font-size: 15px;
+  color: #333;
+}
+
+.content {
+  margin-left: 10rpx;
+  font-size: 14px;
+  color: #555;
+}

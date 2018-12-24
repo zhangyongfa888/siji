@@ -1,0 +1,20 @@
+<!--pages/userinfo/userinfo.wxml-->
+<view class='parent'>
+
+  <view class='line'>
+    <text class='title'>姓名:</text>
+    <text class='content'>{{userinfo.name}}</text>
+  </view>
+  <view class='line'>
+    <text class='title'>身份证号码:</text>
+    <text class='content'>{{userinfo.identify}}</text>
+  </view>
+  <view class='line'>
+    <text class='title'>紧急联系人:</text>
+    <text class='content'>{{userinfo.emergency}}</text>
+  </view>
+  <view class='line'>
+    <text class='title'>紧急联系人电话:</text>
+    <text class='content'>{{userinfo.emergency_mobile}}</text>
+  </view>
+</view>

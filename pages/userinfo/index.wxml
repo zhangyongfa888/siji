@@ -1,0 +1,31 @@
+<!--pages/userinfo/index.wxml-->
+<view class='infocontainer'>
+  <image class='infoimg' bindtap='chooseImg' src='{{userinfo.pic}}'></image>
+  <text class='infoname'>{{userinfo.name}}</text>
+
+
+  <view style='width:100%;' wx:for='{{list}}' wx:key='index'>
+    <view class='line {{index==0?"divier":""}}' bindtap='onItemClick' data-index='{{index}}'>
+
+      <image class='lineimg' src='{{item.pic}}'></image>
+      <text class='linetitle'>{{item.name}}</text>
+      <image class='linearrow' src='http://res.zhangyongfa888.site/ic_arrow.png'></image>
+
+    </view>
+  </view>
+
+  <!-- <view class='line'>
+
+    <image class='lineimg' src='http://res.zhangyongfa888.site/ic_userinfo_car.png'></image>
+    <text class='linetitle'>个人信息</text>
+    <image class='linearrow' src='http://res.zhangyongfa888.site/ic_arrow.png'></image>
+
+  </view>
+  <view class='line'>
+
+    <image class='lineimg' src='http://res.zhangyongfa888.site/ic_userinfo_pic.png'></image>
+    <text class='linetitle'>个人信息</text>
+    <image class='linearrow' src='http://res.zhangyongfa888.site/ic_arrow.png'></image>
+
+  </view> -->
+</view>

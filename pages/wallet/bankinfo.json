@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "银行卡信息",
+  "usingComponents": {
+    "sixpwd": "../components/sixpwd"
+  }
+}

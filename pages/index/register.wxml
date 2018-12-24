@@ -1,0 +1,114 @@
+<!--pages/index/register.wxml-->
+<!-- <text>pages/index/register.wxml</text> -->
+<view class='parent'>
+  <view class='banner'>
+
+    <view class='item' data-step='1' bindtap='toStep'>
+
+      <view class='num {{step==1?"num-step":""}}'>
+        <text class='numtxt'>1</text>
+      </view>
+      <text class='txt'>个人信息</text>
+    </view>
+
+    <view class='item' data-step='2' bindtap='toStep'>
+
+      <view class='num {{step==2?"num-step":""}}'>
+        <text class='numtxt'>2</text>
+      </view>
+      <text class='txt'>车辆信息</text>
+    </view>
+    <view class='item' data-step='3' bindtap='toStep'>
+      <view class='num {{step==3?"num-step":""}}'>
+        <text class='numtxt'>3</text>
+      </view>
+      <text class='txt'>照片信息</text>
+    </view>
+  </view>
+  <view class='divider'></view>
+
+
+
+  <view class='content'>
+
+    <view class='contentline1' hidden='{{step!=1}}'>
+      <text class='contenttitle'>姓名：</text>
+      <input class='contentvalue' bindinput='input' id='name' value='{{userinfo.name}}'></input>
+    </view>
+
+    <view class='contentline1' hidden='{{step!=1}}'>
+      <text class='contenttitle'>身份证号码：</text>
+      <input class='contentvalue' bindinput='input' id='identify' value='{{userinfo.identify}}'></input>
+    </view>
+    <view class='contentline1' hidden='{{step!=1}}'>
+      <text class='contenttitle'>紧急联系人：</text>
+      <input class='contentvalue' bindinput='input' id='emergency' value='{{userinfo.emergency}}'></input>
+    </view>
+    <view class='contentline1' hidden='{{step!=1}}'>
+      <text class='contenttitle'>紧急联系人电话：</text>
+      <input class='contentvalue' bindinput='input' id='emergency_mobile' value='{{userinfo.emergency_mobile}}'></input>
+    </view>
+    <view class='contentline1' hidden='{{step!=2}}' bindtap='choose' id='color'>
+      <text class='contenttitle'>车牌颜色：</text>
+      <text class='contentvalue'>{{userinfo.colorName}}</text>
+      <image src='http://res.zhangyongfa888.site/ic_arrow.png' mode='aspectFit' class='arrow'></image>
+
+    </view>
+    <view class='contentline1' hidden='{{step!=2}}'>
+      <text class='contenttitle'>车牌号码：</text>
+      <input class='contentvalue' bindinput='input' id='plate_number' value='{{userinfo.plate_number}}'></input>
+
+    </view>
+    <view class='contentline1' hidden='{{step!=2}}' bindtap='choose' id='type'>
+      <text class='contenttitle'>车辆类型：</text>
+      <text class='contentvalue'>{{userinfo.typeName}}</text>
+      <image src='http://res.zhangyongfa888.site/ic_arrow.png' mode='aspectFit' class='arrow'></image>
+
+    </view>
+
+
+    <view class='authpic' hidden='{{step!=3}}'>
+
+      <view wx:for='{{list}}' wx:key='index'>
+
+        <view class='authitem' bindtap='onItemClick' data-index='{{index}}'>
+          <image class='authimg' src='{{item.pic}}' mode='aspectFit'></image>
+          <text class='authtxt'>{{item.name}}</text>
+        </view>
+
+      </view>
+
+    </view>
+
+
+
+  </view>
+
+  <view class='bottom'>
+
+    <text>{{userinfo.reason}}</text>
+    <button bindtap='next' hover-class='btn-hover' class='btn'>下一步</button>
+  </view>
+
+
+</view>
+
+
+
+<view class='dialog' hidden='{{!(showColor)}}'> </view>
+
+<view class='color-content' hidden='{{!showColor}}'>
+
+  <view class='color-parent'>
+    <text class='color-title'>车牌颜色</text>
+    <image bindtap='chooseColor' data-color='1' src='http://res.zhangyongfa888.site/ic_car_color_blue.png' mode='aspectFit' class='platcolor'></image>
+    <image bindtap='chooseColor' data-color='2' src='http://res.zhangyongfa888.site/ic_car_color_yellow.png' mode='aspectFit' class='platcolor'></image>
+
+    <image bindtap='chooseColor' data-color='3' src='http://res.zhangyongfa888.site/ic_car_color_green.png' mode='aspectFit' class='platcolor'></image>
+
+    <image bindtap='chooseColor' data-color='4' src='http://res.zhangyongfa888.site/ic_car_color_yellow_green.png' mode='aspectFit' class='platcolor'></image>
+
+  </view>
+
+</view>
+

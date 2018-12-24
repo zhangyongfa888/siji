@@ -1,0 +1,8 @@
+<!--pages/route/addroute.wxml-->
+<view class='item'>
+  <input class='name' placeholder='按此输入路线名称'></input>
+  <path bind:chooseAddress="chooseAddress"></path>
+
+
+</view>
+<view class='add' bindtap='addroute'>添加</view>

@@ -1,0 +1,32 @@
+<!--pages/main/mine.wxml-->
+<view class='parent'>
+
+  <view class='banner' bindtap='userinfo'>
+    <image src='{{head}}' mode='aspectFit' class='bannerhead'></image>
+    <view class='bannerinfo'>
+      <text class='name' catchtap='getInfo'>{{name}}  {{phone}}</text>
+      <text class='status'>{{status}}</text>
+    </view>
+  </view>
+  <view class='menu'>
+    <view wx:for='{{menuData}}' wx:key='index'>
+      <view class='menuitem' bindtap='onItemClickMenu' data-index='{{index}}'>
+        <view class='menutxt'>{{item.num}}</view>
+        <view class='menutxt'>{{item.name}}</view>
+      </view>
+
+    </view>
+  </view>
+
+  <text style='font-size:16px;color:#111;padding:10rpx;'>我的工具</text>
+  <view class='tools'>
+    <view wx:for='{{toolsData}}' wx:key="index">
+
+      <view class='toolsitem' bindtap='onItemClickTool' data-index='{{index}}'>
+        <image src='{{item.pic}}' class='toolsimg'></image>
+        <text class='toolsname'>{{item.name}}</text>
+      </view>
+
+    </view>
+  </view>
+</view>

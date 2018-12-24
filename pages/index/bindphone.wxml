@@ -1,0 +1,16 @@
+<!--pages/index/bindphone.wxml-->
+<view class='parent'>
+  <view class='line2'>
+    <input class='line2input' bindinput='inputphone' type='number' maxlength='11' placeholder='请输入手机号'>
+    </input>
+  </view>
+  <view class='line2'>
+    <input class='line2input' bindinput='inputcode' type='number' maxlength='4' placeholder='请输入验证码'>
+    </input>
+
+    <text class='getCode' bindtap='{{count=="获取验证码"?"getcode":""}}'>{{count}}</text>
+
+  </view>
+
+  <text class='bind' bindtap='bind'>绑定手机号</text>
+</view>

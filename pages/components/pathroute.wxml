@@ -1,0 +1,19 @@
+<!--pages/components/pathroute.wxml-->
+<view class='parent'>
+  <view class='dotline'>
+
+    <view class='greendot'> </view>
+    <view class='line'></view>
+    <view class='orangedot'> </view>
+
+  </view>
+  <view class='path'>
+    <text class='name' bindtap='chooseStart' placeholder='发货地'>{{start.length==0?"请选择发货地":start}}</text>
+    <text class='name' bindtap='chooseEnd' placeholder='收货地'>{{end.length==0?"请选择收货地":end}}</text>
+  </view>
+
+  <view class='delete' hidden='{{!isDeleteModel}}'>
+    <image src='http://res.zhangyongfa888.site/ic_delete_red.png' mode='aspectFit' style='width:35rpx;height:35rpx;margin:10rpx;'></image>
+    <text>删除</text>
+  </view>
+</view>

@@ -1,0 +1,29 @@
+/* pages/userinfo/authinfo.wxss */
+
+.parent {
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 375rpx;
+}
+
+.img {
+  margin: 20rpx;
+  width: 295rpx;
+  height: 205rpx;
+}
+
+.txt {
+  font-size: 16px;
+  color: #333;
+}
