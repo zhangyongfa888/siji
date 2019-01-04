@@ -1,0 +1,46 @@
+<!--pages/components/orderDetailPath.wxml-->
+<view>
+
+
+  <view wx:for='{{path}}' wx:key='index'>
+
+    <view class='item'>
+
+      <view class='top'>
+        <view class='line'>
+          <view class='line-top {{index==0?"line-hide":""}}'>
+          </view>
+          <view class='line-dot {{index==0?"dot-start":"dot-end"}}'>
+          </view>
+          <view class='{{index==path.length-1?"line-hide":"line-bottom"}}'>
+          </view>
+        </view>
+        <view class='title'>{{item.city}}</view>
+        <image hidden='{{item.lat==0}}' class='direction-img' src='http://res.zhangyongfa888.site/ic_daohang_location.png' mode='aspectFit'></image>
+        <view  hidden='{{item.lat==0}}' class='direction' bindtap='direction' data-lat='{{item.lat}}' data-lng='{{item.lng}}'>导航该路线</view>
+
+      </view>
+
+      <view class='bottom' hidden='{{item.address==""}}' >
+        <view class='line'>
+
+          <view class='{{index==path.length-1?"line-hide":"line-top"}}'>
+          </view>
+          <view class='{{index==path.length-1?"line-hide":"line-dot-hide"}}'>
+          </view>
+          <view class='{{index==path.length-1?"line-hide":"line-bottom"}}'>
+          </view>
+        </view>
+        <view class='content'>
+          <view> {{item.address}} {{item.orderAddress}}</view>
+          <view>{{item.name}} {{item.name}}</view>
+
+        </view>
+
+      </view>
+
+    </view>
+
+  </view>
+
+</view>

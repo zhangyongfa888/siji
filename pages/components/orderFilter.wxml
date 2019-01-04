@@ -1,0 +1,124 @@
+<!--pages/components/orderFilter.wxml-->
+
+<!-- 第一个筛选 -->
+<view wx:if='{{type=="0"}}' class='parent'>
+
+
+  <view class='search-line'>
+
+    <view class='search-city'>
+      <view class='search-start-city {{showType==0?"cityChecked":""}}' bindtap='chooseStartCity'> {{star_name}} </view>
+      <image src='http://res.zhangyongfa888.site/ic_arraw_selected.png' mode='aspectFit' class='img'></image>
+
+      <view class='search-divider-vertical'></view>
+
+      <view class='search-end-city {{showType==1?"cityChecked":""}}' bindtap='chooseEndCity'>{{end_name}}</view>
+      <image src='http://res.zhangyongfa888.site/ic_arraw_selected.png' mode='aspectFit' class='img'></image>
+
+    </view>
+    <view class='search-divider-horizontal'></view>
+
+    <view class='search-size' bindtap='chooseSize'>车型车长</view>
+
+  </view>
+
+
+
+</view>
+
+<!-- 第二种筛选 -->
+<view wx:else class='parent'>
+
+  <view class='search-type-input-bg'>
+    <view class='search-type-input-txt'>
+      输入发货城市/收货城市
+    </view>
+    <view class='search-type-input-btn'>搜索</view>
+  </view>
+
+</view>
+
+<!-- 显示城市数据 -->
+<view class='showCity' hidden='{{!showChooseCity}}' style='height:{{height}}px'>
+
+  <view class='cityTab'>
+
+    <text class='cityTab-txt cityTab-txt-left {{tabPosition==0?"checked":""}}' bindtap='onTabProvince'>省</text>
+    <text class='cityTab-txt cityTab-txt-center {{tabPosition==1?"checked":""}}' bindtap='onTabCity'>市</text>
+    <text class='cityTab-txt cityTab-txt-right {{tabPosition==2?"checked":""}}' bindtap='onTabCounty'>县</text>
+  </view>
+
+
+
+  <view wx:if='{{tabPosition==0}}' class='cityInfo'>
+    <view wx:for='{{citys}}' wx:key='index'>
+      <view class='{{pindex==index?"checkedItem":"p-name"}}' bindtap='checkedProvince' data-pindex='{{index}}'>{{item.name}}</view>
+
+    </view>
+  </view>
+  <view wx:if='{{tabPosition==1}}' class='cityInfo'>
+
+    <view wx:for='{{citys[pindex].children}}' wx:key='index'>
+      <view class='{{cindex==index?"checkedItem":"p-name"}}' bindtap='checkedCity' data-cindex='{{index}}'>{{item.name}}</view>
+
+    </view>
+  </view>
+
+  <view wx:if='{{tabPosition==2}}' class='cityInfo'>
+
+    <view wx:for='{{citys[pindex].children[cindex].children}}' wx:key='index'>
+      <view class='{{xindex==index?"checkedItem":"p-name"}}' bindtap='checkedCounty' data-xindex='{{index}}'>{{item.name}}</view>
+
+    </view>
+  </view>
+
+
+</view>
+
+
+<!-- 显示车型 -->
+<scroll-view class='showCity' hidden='{{!showChooseSize}}' scroll-y='true' style='height:{{height}}px'>
+
+
+  <view class='car-title'> 车型大类</view>
+  <view class='carInfo'>
+    <view wx:for='{{carType}}' wx:key='index'>
+      <view class='{{tindex==index?"checkedItem":"p-name"}}' bindtap='checkedCarType' data-tindex='{{index}}'>{{item.name}}</view>
+
+    </view>
+  </view>
+  <view hidden='{{tindex!=7}}' style='padding-bottom:300rpx;'>
+    <view class='car-title'> 车长</view>  
+    <view class='carInfo'>
+      <view wx:for='{{carLength}}' wx:key='index'>
+        <view class='{{item.isChecked?"checkedItem":"p-name"}}' bindtap='checkedCarlength' data-lengthindex='{{index}}'>{{item.length}}</view>
+
+      </view>
+    </view>
+
+
+    <view class='car-title'> 车型</view>
+    <view class='carInfo'>
+      <view wx:for='{{carTruckType}}' wx:key='index'>
+        <view class='{{item.isChecked?"checkedItem":"p-name"}}' bindtap='checkedCarTruckType' data-truckindex='{{index}}'>{{item.carTypeName}}</view>
+
+      </view>
+    </view>
+
+    <view class='car-title'> 货物类型</view>
+    <view class='carInfo'>
+      <view wx:for='{{goodType}}' wx:key='index'>
+        <view class='{{item.isChecked?"checkedItem":"p-name"}}' bindtap='checkedGoodsType' data-index='{{index}}'>{{item.cargo_type}}</view>
+
+      </view>
+    </view>
+  </view>
+
+
+</scroll-view>
+<view class='showConfirm' hidden='{{!showChooseSize}}'>
+
+  <text class='showConfirm-btn-left' bindtap='reset'>重置</text>
+
+  <text class='showConfirm-btn-right' bindtap='search'>确定</text>
+</view>

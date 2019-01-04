@@ -4,6 +4,38 @@ var data = require("../../utils/data.js")
 var utils = require("../../utils/util.js")
 var cisdom = require("../../utils/cisdom.js")
 
+
+function upload(index, list, callback) {
+  if (list[index].pic.substr(0, 10) != "http://tmp") {
+    callback.success(list[index].pic);
+  } else {
+    cisdom.uploadFile(list[index].pic, {
+      type: "0" //返回地址file
+    }, {
+      success: function(e) {
+        callback.success(e.data.file);
+
+        // if (index == 0) {
+        //   submitParam.driving_image = e.data.file;
+        // } else if (index == 1) {
+        //   submitParam.identify_image = e.data.file;
+        // } else if (index == 2) {
+        //   submitParam.person_car_image = e.data.file;
+        // }
+
+
+      },
+      fail: function(e) {
+
+      }
+    });
+  }
+
+
+
+
+}
+
 function createParam(that) {
 
   var submitParam = {};
@@ -23,25 +55,54 @@ function createParam(that) {
   submitParam.city = "";
   console.log(submitParam);
 
-  cisdom.request("register", submitParam, {
+  var list = that.data.list;
+
+  console.log(list);
+
+  // var uploadlist = list.filter(function(item) {
+  //   return item.pic.substr(0, 4) != "http"
+  // })
+
+  upload(0, list, {
     success(e) {
-      wx.showToast({
-        icon: "success",
-        title: '提交成功！',
-        duration: 2500,
-        success() {
-          setTimeout(function() {
-            wx.navigateBack({})
-          }, 2500);
+      submitParam.driving_image = e;
+      upload(1, list, {
+        success(e) {
+          submitParam.identify_image = e;
+          upload(2, list, {
+            success(e) {
+              submitParam.person_car_image = e;
+              cisdom.request("register", submitParam, {
+                success(e) {
+                  wx.showToast({
+                    icon: "success",
+                    title: '提交成功！',
+                    duration: 1000,
+                    success() {
+                      setTimeout(function() {
+                        wx.navigateBack({})
+                      }, 1000);
 
+                    }
+                  })
+
+                },
+                fail(e) {
+
+                }
+              })
+            }
+          })
         }
-      })
-
-    },
-    fail(e) {
-
+      });
     }
-  })
+  });
+
+
+
+
+
+
 
 }
 
@@ -184,18 +245,24 @@ Page({
   onItemClick: function(e) {
     console.log(e);
     var index = e.currentTarget.dataset.index;
+    var that = this;
     wx.chooseImage({
-      success: function(e) {
-        console.log(e);
-
-        return;
-
-        wx.uploadFile({
-          url: '',
-          filePath: '',
-          name: 'index',
+      count: 1,
+      success: function(res) {
+        console.log(res);
+        var tempFilePaths = res.tempFilePaths;
+        var list = that.data.list;
+        list[index].pic = tempFilePaths[0];
+        that.setData({
+          list: list,
         })
-      }
+
+
+
+
+
+
+      },
     })
 
   },

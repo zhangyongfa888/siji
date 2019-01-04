@@ -26,7 +26,7 @@ Page({
   forgetPwd: function(e) {
 
     wx.navigateTo({
-      url: '../wallet/setpassword',
+      url: '../tools/settingpwd',
     })
   },
   //输入的支付密码
@@ -48,6 +48,7 @@ Page({
 
     payUtil.whthdraw(this.data.input, this.data.inputPwd + "", {
       success: function(e) {
+
         wx.showToast({
           title: '发起成功！',
           icon: 'none',
@@ -55,9 +56,14 @@ Page({
             that.setData({
               showpwd: false,
             })
-            wx.navigateBack()
+
           }
         })
+        setTimeout(
+          function() {
+            wx.navigateBack()
+          }, 1500
+        );
 
       },
       fail: function(e) {

@@ -1,3 +1,7 @@
 {
-  "navigationBarTitleText": "货源"
+  "navigationBarTitleText": "货源",
+  "usingComponents": {
+    "orderItem": "../components/orderItem",
+    "orderFilter": "../components/orderFilter"
+  }
 }

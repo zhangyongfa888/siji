@@ -1,1 +1,41 @@
 <!--pages/main/source.wxml-->
+
+<view class='parent'>
+  <image src='http://res.zhangyongfa888.site/ic_grab_logo.png' class='top-img' mode='aspectFit'></image>
+  <orderFilter type='{{checked}}' bind:search="search" ></orderFilter>
+  <view class='bannerparent'>
+
+    <view wx:for='{{banner}}' wx:key='index'>
+      <view class='item {{checked==index?"checked":""}}' bindtap='onItemChecked' data-index='{{index}}'>
+        <text class='item-txt'>{{item}}</text>
+      </view>
+    </view>
+
+
+  </view>
+
+  <swiper class='swiper' current='{{checked}}' style='height:{{height-150}}px' bindchange='onItemSelected'>
+
+
+    <view wx:if='{{checked==0?data_1.length==0:data_2.length==0}}' class='nodata'>
+      <image src='http://res.zhangyongfa888.site/ic_empty_order.png' style='width:50%;margin-bottom:20rpx;' mode='aspectFit'></image>
+      <view>暂无数据</view>
+    </view>
+    <view wx:else>
+
+      <view wx:for='{{banner}}' wx:key='index'>
+        <swiper-item class='swiper-item'>
+          <scroll-view scroll-y='true' style='height:{{height-50}}px' bindscrolltolower='onbottom' bindscrolltoupper='ontop' lower-threshold='50px'>
+            <orderItem list='{{index==0?data_1:data_2}}' bind:call="callphone" bind:viewOrderDetail='{{index==0?"viewOrderDetail":""}}'></orderItem>
+          </scroll-view>
+
+        </swiper-item>
+
+      </view>
+
+    </view>
+
+
+  </swiper>
+
+</view>

@@ -1,0 +1,96 @@
+/* pages/components/orderDetailPath.wxss */
+
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+.item:active {
+  background: #f5f5f5;
+}
+
+.top {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+  color: #333;
+  flex-grow: 1;
+  font-size: 34rpx;
+}
+
+.content {
+  flex-grow: 1;
+  font-size: 30rpx;
+  color: #666;
+  flex-direction: column;
+}
+
+.line {
+  width: 50rpx;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.line-top {
+  width: 1rpx;
+  height: 25rpx;
+  background-color: #dcdcdc;
+}
+
+.line-hide {
+  width: 1rpx;
+  height: 25rpx;
+  background-color: transparent;
+}
+
+.line-dot {
+  background: #e67000;
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 15rpx;
+}
+
+.dot-start {
+  background: #6dc135;
+}
+
+.dot-end {
+  background: #e67000;
+}
+
+.line-dot-hide {
+  align-items: center;
+  text-align: center;
+  background-color: #dcdcdc;
+  width: 1rpx;
+  height: 29rpx;
+}
+
+.line-bottom {
+  background-color: #dcdcdc;
+  width: 1rpx;
+  height: 25rpx;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+}
+
+.direction-img {
+  width: 18rpx;
+  height: 18rpx;
+}
+
+.direction {
+  margin-right: 30rpx;
+  color: #e67000;
+  font-size: 28rpx;
+}

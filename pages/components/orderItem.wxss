@@ -1,0 +1,97 @@
+/* pages/components/orderItem.wxss */
+
+.cityinfo {
+  display: flex;
+  position: relative;
+  height: auto;
+  flex-direction: row;
+  align-items: center;
+}
+
+.imgstart {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.txtstart {
+  flex-basis: 320rpx;
+  margin-left: 5rpx;
+  font-size: 32rpx;
+}
+
+.divider {
+  margin: 10rpx;
+  width: 30rpx;
+  height: 1rpx;
+  background-color: #dcdcdc;
+}
+
+.imgend {
+  width: 20rpx;
+  height: 20rpx;
+}
+
+.txtend {
+  flex-basis: 320rpx;
+  margin-left: 5rpx;
+  font-size: 32rpx;
+}
+
+.time {
+  width: 180rpx;
+  text-align: end;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.price {
+  color: #e63700;
+  font-size: 28rpx;
+}
+
+.content {
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  font-size: 28rpx;
+}
+
+.item {
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  margin: 2rpx;
+  padding:15rpx 0 15rpx 15rpx;
+  width: 746rpx;
+  border: 1rpx solid #dcdcdc;
+  background: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.orderInfo {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.contact {
+   width: 185rpx;
+
+
+  margin-right: 10rpx;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.identity2 {
+  color: #f78312;
+}
+
+.identity1 {
+  color: #6dc135;
+}

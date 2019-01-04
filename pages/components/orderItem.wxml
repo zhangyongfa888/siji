@@ -1,0 +1,27 @@
+<!--pages/components/orderItem.wxml-->
+
+<view wx:for='{{list}}' wx:key='index'>
+  <view class='item' bindtap='getOrderDetail' data-order_code='{{item.order_code}}'>
+    <!-- <text>{{item.orderId}}</text> -->
+    <view class='orderInfo'>
+      <view class='cityinfo'>
+        <image class='imgstart' src='http://res.zhangyongfa888.site/ic_order_start_address.png' mode='aspectFit'></image>
+        <text class='txtstart'>{{item.send_city}}{{item.send_county}}</text>
+        <view class='divider'></view>
+        <image class='imgend' src='http://res.zhangyongfa888.site/ic_order_end_address.png' mode='aspectFit'></image>
+        <text class='txtend'>{{item.take_city}}{{item.take_county}}</text>
+        <text class='time'>{{item.create_time_str}}</text>
+      </view>
+      <view class='content'>{{item.content}}</view>
+      <view class='price'>{{item.toFixMoney}}</view>
+    </view>
+    <view class='contact' catchtap='call' data-order_code='{{item.order_code}}'>
+      <image style='width:40rpx;height:40rpx;' mode='aspectFit' src='http://res.zhangyongfa888.site/ic_call.png'></image>
+      <text style='color:#3388FC;margin:10rpx 0 10rpx 0;'>联系</text>
+      <text class='identity{{item.identity}}'>{{item.identity==2?"物流代理":"一手货源"}}</text>
+    </view>
+
+  </view>
+
+
+</view>

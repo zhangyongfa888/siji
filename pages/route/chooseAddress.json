@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "list-html": "../components/chooseCity"
+  },
+  "navigationBarTitleText": "选择城市"
 }

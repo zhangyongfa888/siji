@@ -19,6 +19,17 @@ function payByBalance(money, orderCode, pwd, res) {
 
 }
 
+function payFeeByBalance(money, orderCode, pwd, res) {
+  pwd = CryptoJS.MD5(pwd).toString();
+  var param = {
+    "fee": money,
+    "orderCode": orderCode,
+    "deal_password": pwd
+  }
+  cisdom.request("payFee", param, res);
+
+}
+
 function payByRecharge() {
 
 }
@@ -28,7 +39,8 @@ function whthdraw(money, orderpassword, res) {
 
   cisdom.request("putForward", {
     money: money,
-    orderpassword: pwd
+    orderpassword: pwd,
+    deal_password:pwd
   }, res)
 }
 
@@ -83,7 +95,7 @@ function getMoney(res) {
 
 }
 
-function resetPwd(pwd, mobile, vcard,res) {
+function resetPwd(pwd, mobile, vcard, res) {
   var pwd = CryptoJS.MD5(pwd).toString();
   cisdom.request("resertPassword", {
     deal_password: pwd,
@@ -109,5 +121,7 @@ module.exports = {
   getMoney: getMoney,
   payByRecharge: payByRecharge,
   whthdraw: whthdraw,
-  setPwd: setPwd, resetPwd: resetPwd
+  setPwd: setPwd,
+  resetPwd: resetPwd,
+  payFeeByBalance: payFeeByBalance
 }

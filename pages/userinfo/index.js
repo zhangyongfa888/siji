@@ -22,48 +22,30 @@ Page({
     }]
   },
   chooseImg: function(e) {
+    var that = this;
     wx.chooseImage({
       count: 1,
       success: function(res) {
         console.log(res);
         var tempFilePaths = res.tempFilePaths;
-        // wx.saveFile({
-        //   tempFilePath: tempFilePaths[0],
-        //   success: function(e) {
-        //     console.log("saveFile", e);
-        //   }
-        // })
+        cisdom.uploadFile(tempFilePaths[0], {
+          type: "1"
 
-        wx.uploadFile({
-          url: 'http://cisdom.free.idcfengye.com/wx/index.php',
-          filePath: tempFilePaths[0],
-          name: 'file',
+        }, {
           success: function(e) {
 
+            var userinfo = that.data.userinfo;
+            userinfo.pic = tempFilePaths[0];
+            that.setData({
+              userinfo: userinfo
+
+            });
+
           },
-          complete: function(e) {
-            console.log("-----", e)
-          }
-        })
-        wx.showToast({
-          title: '需要配置下载/上传服务器',
-          icon: 'none'
-        })
+          fail: function(e) {}
+        });
 
 
-        // wx.uploadFile({
-        //   url: cisdom.getUrl('upload'),
-        //   filePath: tempFilePaths[0],
-        //   name: "",
-
-        // wx.getSavedFileList({
-        //   success: function(res) {
-        //     console.log(res);
-        //   },
-        //   fail: function(res) {},
-        //   complete: function(res) {},
-        // })
-        // })
 
 
       },

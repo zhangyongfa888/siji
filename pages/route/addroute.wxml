@@ -1,6 +1,6 @@
 <!--pages/route/addroute.wxml-->
 <view class='item'>
-  <input class='name' placeholder='按此输入路线名称'></input>
+  <input class='name' bindinput='pathname' placeholder='按此输入路线名称'></input>
   <path bind:chooseAddress="chooseAddress" start='{{send_name}}' end='{{take_name}}'></path>
 
 

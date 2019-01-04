@@ -1,1 +1,53 @@
 <!--pages/main/order.wxml-->
+<view class='bannerparent'>
+
+  <view wx:for='{{banner}}' wx:key='index'>
+    <view class='item {{checked==index?"checked":""}}' bindtap='onItemChecked' data-index='{{index}}'>
+      <text class='item-txt'>{{item}}</text>
+    </view>
+  </view>
+
+
+</view>
+
+<swiper class='swiper' current='{{checked}}' style='height:{{height-50}}px' bindchange='onItemSelected'>
+  <view wx:for='{{banner}}' wx:key='index'>
+    <swiper-item class='swiper-item'>
+
+      <view wx:if='{{index==0?data_1.length==0:index==1?data_2.length==0:data_3.length==0}}' class='nodata'>
+          <image src='http://res.zhangyongfa888.site/ic_empty_order.png' style='width:50%;margin-bottom:20rpx;' mode='aspectFit'></image>
+        <view>暂无数据</view>
+      </view>
+      <view wx:else>
+        <scroll-view scroll-y='true' style='height:{{height-50}}px' bindscrolltolower='onbottom' bindscrolltoupper='ontop' lower-threshold='50px'>
+          <view wx:for='{{index==0?data_1:index==1?data_2:data_3}}' wx:key='data1'>
+
+            <view class='order-item' bindtap='toDetails' data-order_code='{{item.order_code}}'>
+              <view class='order-title'>
+                <view class='order-cartype'>{{item.carTypeName}}</view>
+                <view class='order-code'>{{item.order_code}}</view>
+                <view class='order-status'>{{item.statusName}}</view>
+              </view>
+              <path path='{{item.path}}'> </path>
+              <view class='order-time-money'>
+                <view class='order-time'>{{item.create_time}}</view>
+                <view class='order-money'>{{item.money}}</view>
+              </view>
+            </view>
+          </view>
+
+        </scroll-view>
+      </view>
+
+
+
+
+
+
+
+
+    </swiper-item>
+
+  </view>
+
+</swiper>

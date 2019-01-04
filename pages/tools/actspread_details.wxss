@@ -1,1 +1,9 @@
 /* pages/tools/actspread_details.wxss */
+
+.upload-img {
+  margin-top: 40rpx;
+  margin-left: 75rpx;
+  width: 600rpx;
+  text-align: center;
+  height: 400rpx;
+}

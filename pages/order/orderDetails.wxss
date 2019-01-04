@@ -1,0 +1,224 @@
+/* pages/order/orderDetails.wxss */
+
+.parent {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #f5f5f5;
+}
+
+.title {
+  padding: 8rpx 30rpx 8rpx 40rpx;
+  z-index: 1;
+  position: fixed;
+  top: 8rpx;
+  font-size: 28rpx;
+  left: 30rpx;
+  background: #eb6700;
+  color: white;
+  border-radius: 8rpx;
+}
+
+.title_code {
+  padding: 10rpx 20rpx 10rpx 20rpx;
+  border-bottom: 4rpx solid #f5f5f5;
+  font-size: 30rpx;
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.addressinfo {
+  padding-top: 20rpx;
+  padding-bottom: 30rpx;
+  background: white;
+  margin: 35rpx 20rpx 20rpx 20rpx;
+  border-radius: 5rpx;
+}
+
+.car_type {
+  padding: 10rpx;
+  font-size: 30rpx;
+  color: #333;
+  background: #dcdcdc;
+  margin: 10rpx;
+}
+
+.line {
+  border-radius: 5rpx;
+  font-size: 30rpx;
+  color: #333;
+  margin: 20rpx 20rpx 20rpx 20rpx;
+  padding: 20rpx 20rpx 20rpx 20rpx;
+  background: white;
+}
+
+.line:active {
+  background: #f5f5f5;
+}
+
+.line-title {
+  margin-right: 10rpx;
+  font-size: 30rpx;
+  color: #000;
+}
+
+.line-fee {
+  flex-grow: 1;
+  align-self: flex-start;
+}
+
+.fee {
+  display: flex;
+  flex-direction: row;
+}
+
+.fee-return {
+  border-radius: 5rpx;
+  border: 1rpx solid #dcdcdc;
+  font-size: 28rpx;
+  color: #e63700;
+  padding: 5rpx;
+}
+
+.pay {
+  align-items: flex-start;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+}
+
+.pay-status {
+  margin-left: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.pay-money {
+  align-items: flex-end;
+  justify-content: space-between;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.pay-money-price {
+  font-size: 30rpx;
+  color: #e67300;
+}
+
+.pay-money-details {
+  width: 120rpx;
+  font-size: 28rpx;
+  color: #333;
+  background: #dcdcdc;
+  padding: 5rpx 10rpx 5rpx 10rpx;
+}
+
+.grab {
+  z-index: 0;
+  left: 25rpx;
+  position: fixed;
+  bottom: 20rpx;
+  height: 140rpx;
+  width: 700rpx;
+}
+
+.grab-bg {
+  z-index: 1;
+  left: 25rpx;
+  position: fixed;
+  bottom: 20rpx;
+  height: 100rpx;
+  width: 700rpx;
+}
+
+.grab-text {
+  left: 50%;
+  bottom: 30rpx;
+  font-size: 32rpx;
+  color: white;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.movable-bg {
+  z-index: 1;
+  left: 25rpx;
+  position: fixed;
+  bottom: 20rpx;
+  height: 100rpx;
+  width: 700rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.movable {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  left: 20%;
+  height: 100rpx;
+  width: 150rpx;
+  /* background-image:url('http://res.zhangyongfa888.site/ic_touch_view.png') ; */
+}
+
+.movable-img {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.movable-img:active {
+  opacity: 0.7;
+}
+
+.bottom-bg {
+  z-index: 1;
+  left: 25rpx;
+  position: fixed;
+  bottom: 20rpx;
+  height: 100rpx;
+  width: 700rpx;
+}
+
+.bottom-txt {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  left: 25rpx;
+  position: fixed;
+  bottom: 30rpx;
+  height: 100rpx;
+  width: 700rpx;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.bottom-txt-title {
+  font-size: 32rpx;
+  color: white;
+}
+
+.bottom-txt-desc {
+  font-size: 28rpx;
+  color: white;
+}
+
+.fee-input {
+  display: flex;
+  flex-direction: row;
+  border: 1rpx solid #dcdcdc;
+  align-items: center;
+  padding: 10rpx;
+  margin: 10rpx;
+  font-size: 30rpx;
+  color: #333;
+}

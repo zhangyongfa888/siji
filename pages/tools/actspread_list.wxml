@@ -1,0 +1,13 @@
+<!--pages/tools/actspread_list.wxml-->
+<view >
+
+  <view wx:for='{{list}}' wx:key='index'>
+
+    <view class='item' bindtap='toDetail' data-id='{{item.spreadId}}'>
+    <text>{{item.first_time}}-{{item.second_time}}
+    </text>
+    <image class='img' src='http://res.zhangyongfa888.site/ic_arrow.png' mode='aspectFit'></image>
+    </view>
+  </view>
+
+</view>

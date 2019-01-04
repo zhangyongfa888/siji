@@ -14,7 +14,7 @@
 
   </view>
   <view wx:else>
-    <view class='scroll' style='margin-top:90rpx;'>
+    <view class='scroll'>
       <view wx:for='{{list}}' wx:key='index'>
         <view class='item_line1'>
           <view class='item_line1_left'>{{item.operate}}</view>

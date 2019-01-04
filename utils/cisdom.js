@@ -50,7 +50,7 @@ function request(method, data, callback) {
   }
   //data 加密
   data.sign = getAppkey();
-  console.log('urlencode before',Encrypt(JSON.stringify(data)));
+  console.log('urlencode before', Encrypt(JSON.stringify(data)));
   var endata = urlencode(Encrypt(JSON.stringify(data)));
   console.log(getUrl(method) + ",加密前参数:", data, ",加密后:" + endata);
   wx.request({
@@ -63,7 +63,7 @@ function request(method, data, callback) {
     },
     success: function(e) {
       if (e.data.code == 200) {
-       
+
         //data 解密;
         var success = {
           code: e.data.code,
@@ -112,12 +112,82 @@ function request(method, data, callback) {
 }
 
 
+function uploadFile(filePath, data, callback) {
+
+// type  1上传头像； 2 推广； 0 返回照片路径
+  var method = 'imgNotify';
+  if (data.type != 0) {
+    method = 'imageNotify'
+  }
+  var driver = wx.getStorageSync('driver') || null;
+  if (driver != null) {
+    data.token = driver.token
+    data.user_id = driver.userid
+  }
+  //data 加密
+  data.sign = getAppkey();
+  var endata = (Encrypt(JSON.stringify(data)));
+  console.log("imageNotify data", endata);
+  wx.uploadFile({
+      url: getUrl(method),
+      // url: 'http://cisdom.free.idcfengye.com/wx/index.php',
+      filePath: filePath,
+      name: 'file',
+      formData: {
+        data: endata
+      },
+
+      success: function(e) {
+        console.log("imgNotify:success:", e);
+        if (e.statusCode == 200) {
+          var data = JSON.parse(e.data);
+
+          if (data.code == 200) {
+            //data 解密;
+            var success = {
+              code: data.code,
+              data: JSON.parse(Decrypt(data.data)),
+              message: data.msg
+            }
+            console.log("imgNotify:success:", success);
+            callback.success(success)
+
+
+          } else {
+            var error = {
+              code: data.code,
+              data: Decrypt(data.data),
+              message: data.msg
+            }
+            console.log("imgNotify:error:", error);
+            callback.fail(error)
+          }
+        } else {
+          var error = {
+            code: e.data.code,
+            data: Decrypt(e.data.data),
+            message: e.data.msg
+          }
+          console.log("imgNotify:error:", error);
+          callback.fail(error)
+        }
+
+      },
+      complete: function(e) {
+
+      }
+    }
+
+  );
+}
 
 function getUrl(method) {
-  return "http://118.31.74.225/phphyb2018/public/index.php/driverapi/" + method
+  return "http://118.31.74.225:81/phphyb2018/public/index.php/driverapi/" + method
 
 }
 module.exports = {
   request: request,
   getUrl: getUrl,
+  uploadFile: uploadFile,
+
 }

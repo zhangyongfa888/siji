@@ -24,16 +24,7 @@ Page({
 
       },
     })
-    cisdom.request("pathList", {}, {
-      success(e) {
-        that.setData({
-          routeList: e.data
-        });
-      },
-      fail(e) {
-
-      }
-    })
+   
 
 
 
@@ -54,10 +45,15 @@ Page({
       confirmText: "删除",
       confirmColor: '#e63700',
       success: function(e) {
+
+        if (e.cancel) {
+          return;
+        }
         cisdom.request("pathDel", {
           path_id: path_id
         }, {
           success(e) {
+
             cisdom.request("pathList", {}, {
               success(e) {
                 that.setData({
@@ -93,7 +89,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    var that=this;
+    cisdom.request("pathList", {}, {
+      success(e) {
+        that.setData({
+          routeList: e.data
+        });
+      },
+      fail(e) {
 
+      }
+    })
   },
 
   /**

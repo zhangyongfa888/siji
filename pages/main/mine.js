@@ -113,7 +113,15 @@ function getData(that, from) {
 
           });
         },
-        fail: function(e) {}
+        fail: function(e) {
+          if (e.code == 604) { //异地登陆
+            wx.setStorageSync("driver", false);
+            getData(that, from);
+
+          }
+
+
+        }
       })
 
 

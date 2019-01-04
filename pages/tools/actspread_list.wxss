@@ -1,0 +1,17 @@
+/* pages/tools/actspread_list.wxss */
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 30rpx;
+  margin: 10rpx;
+  border-bottom: 1rpx solid #dcdcdc;
+  padding: 15rpx;
+}
+.img{
+  height: 40rpx;
+  width: 15rpx;
+}
+.item:active {
+  background: #f5f5f5;
+}

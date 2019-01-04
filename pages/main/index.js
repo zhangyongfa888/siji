@@ -1,5 +1,7 @@
 // pages/main/index.js
 var cisdom = require('../../utils/cisdom.js');
+var utils = require('../../utils/util.js');
+var data = require('../../utils/data.js');
 var app = getApp();
 
 function getUserData(that, from) {
@@ -67,20 +69,74 @@ function getUserData(that, from) {
 
 
 }
+
+function getPushData(that) {
+
+  cisdom.request("homeShow", {
+    page: 1
+  }, {
+    success(e) {
+      console.log(e);
+      for (var i = 0; i < e.data.length; i++) {
+        var item = e.data[i];
+        e.data[i]['toFixMoney'] = utils.toFix(item.money, item.tip);
+        e.data[i]['content'] = data.getCarNameById(item.car_type);
+        e.data[i]['create_time_str'] = utils.getCreateTimeStr(item.create_time);
+      }
+
+
+      that.setData({
+        list: e.data
+      })
+
+    },
+    fail(e) {}
+  })
+
+}
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list: [],
+    height: 1000,
   },
 
+  viewOrderDetail: function(e) {
+    wx.navigateTo({
+      url: '../order/orderDetails?order_code=' + e.detail,
+    })
+  },
+  callphone: function(e) {
+    var ordercode = e.detail;
+
+    cisdom.request("getPhone", {
+      order_code: ordercode
+    }, {
+      success: function(e) {
+        wx.makePhoneCall({
+          phoneNumber: e.data.con_mobile,
+        })
+      },
+      fail: function(e) {
+        //信息审核失败?606?
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var that = this;
+    wx.getSystemInfo({
+      success: function(res) {
+        that.setData({
+          height: res.windowHeight
+        });
+      },
+    })
 
 
   },
@@ -107,7 +163,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    var that = this;
     // wx.setTabBarBadge({
     //   index: 2,
     //   text: '12',
@@ -121,8 +177,10 @@ Page({
     setTimeout(function() {
       wx.hideLoading();
       var pages = getCurrentPages();
+      getPushData(that);
 
-      getUserData(this, "");
+      getUserData(that, "");
+
     }, 1000);
 
 

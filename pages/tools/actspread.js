@@ -29,16 +29,67 @@ Page({
   checkDetails: function(e) {
 
     wx.navigateTo({
-      url: 'actspread_details',
+      url: 'actspread_list',
     })
 
   },
   uploadFirst: function(e) {
     //上传照片
+    var that = this;
+    wx.chooseImage({
+      count: 1,
+      success: function(res) {
+        console.log(res);
+        var tempFilePaths = res.tempFilePaths;
+        cisdom.uploadFile(tempFilePaths[0], {
+          type: "2" //推广type=2
+
+        }, {
+          success: function(e) {
+
+            that.setData({
+              firstPic: tempFilePaths[0]
+            })
+
+          },
+          fail: function(e) {}
+        });
+
+
+
+
+      },
+    })
 
   },
   uploadSecond: function(e) { //第二次上传需要对比上次提交照片的时间
 
+    var that = this;
+    wx.chooseImage({
+      count: 1,
+      success: function(res) {
+        console.log(res);
+        var tempFilePaths = res.tempFilePaths;
+        cisdom.uploadFile(tempFilePaths[0], {
+          type: "2" //推广type=2
+
+        }, {
+          success: function(e) {
+
+            that.setData({
+              secondPic: tempFilePaths[0]
+            })
+
+          },
+          fail: function(e) {
+            wx.showToast({
+              title: e.message,
+              icon: 'none'
+            })
+          }
+        });
+      },
+    })
 
   },
   /**
@@ -50,6 +101,13 @@ Page({
     cisdom.request("check", {}, {
       success(e) {
         phone = e.data.mobile
+        if (e.data.secondPic.length > 0) {
+
+          wx.showToast({
+            icon: 'none',
+            title: '您提交的信息正在审核',
+          })
+        }
         that.setData({
           isHasInfo: e.data.is_agree == 1,
           isShowAgreement: e.data.is_agree != 1,

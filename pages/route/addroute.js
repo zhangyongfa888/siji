@@ -1,4 +1,6 @@
 // pages/route/addroute.js
+var inputName = '';
+var cisdom = require("../../utils/cisdom.js");
 Page({
 
   /**
@@ -32,14 +34,43 @@ Page({
       url: 'chooseAddress?type=' + e.detail,
     })
 
-    // if (e.detail == 'start') {
-   
+  },
+  pathname(e) {
+    console.log(e);
+    inputName = e.detail.value;
+  },
+  addroute(e) {
+    var send_name = this.data.send_name;
+    var take_name = this.data.take_name;
+    var send_adcode = this.data.send_adcode;
+    var take_adcode = this.data.take_adcode;
+    var name = inputName;
+    cisdom.request("pathAdd", {
+      "send_name": send_name,
+      "take_name": take_name,
+      "send_adcode": send_adcode,
+      "take_adcode": take_adcode,
+      "name": name,
+    }, {
+      success(e) {
 
-    // }
-    // if (e.detail == 'end') {
+        wx.showToast({
+          title: '添加成功',
+          icon: 'none'
+        })
+
+        setTimeout(function() {
+          wx.navigateBack({
+            
+          })
+        }, 1500)
+      },
+      fail(e) {}
+
+    });
 
 
-    // }
+
   },
   /**
    * 生命周期函数--监听页面显示

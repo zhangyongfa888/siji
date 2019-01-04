@@ -1,0 +1,237 @@
+/* pages/components/orderFilter.wxss */
+
+.search-line {
+  height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.search-city {
+  justify-content: center;
+  width: 550rpx;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  align-items: center;
+}
+
+.search-divider-horizontal {
+  height: 40rpx;
+  width: 1rpx;
+  background-color: #dcdcdc;
+  margin: 10rpx;
+}
+
+.search-divider-vertical {
+  width: 40rpx;
+  align-self: center;
+  height: 1rpx;
+  background-color: #dcdcdc;
+  margin: 10rpx;
+}
+
+.search-size {
+  text-align: center;
+  padding: 20rpx;
+  width: 200rpx;
+}
+
+.search-size:active {
+  background: #dcdcdc;
+}
+
+.parent {
+  font-size: 28rpx;
+  color: #333;
+  background: #f5f5f5;
+  height: 80rpx;
+  width: 750rpx;
+}
+
+.search-start-city {
+  text-align: end;
+  padding: 10rpx 0 10rpx 10rpx;
+}
+
+/* .search-start-city:active {
+  background: #dcdcdc;
+} */
+
+.search-end-city {
+  padding: 10rpx 0 10rpx 10rpx;
+  text-align: end;
+}
+
+/* .search-end-city:active {
+  background: #dcdcdc;
+} */
+
+.search-type-input-bg {
+  height: 80rpx;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.search-type-input-txt {
+  margin-left: 20rpx;
+  width: 600rpx;
+  padding: 10rpx;
+  align-self: center;
+  background: white;
+}
+
+.search-type-input-btn {
+  width: 100rpx;
+  text-align: center;
+  color: #333;
+}
+
+.img {
+  width: 21rpx;
+  align-self: center;
+  height: 12rpx;
+}
+
+.showCity {
+  position: fixed;
+  top: 80;
+  z-index: 10;
+  background: white;
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.cityTab {
+  margin-top: 20rpx;
+  align-self: center;
+}
+
+.cityTab-txt {
+  padding: 10rpx 50rpx 10rpx 50rpx;
+  color: #333;
+  font-size: 26rpx;
+}
+
+.cityTab-txt-left {
+  border-left: 1rpx solid #dcdcdc;
+  border-top: 1rpx solid #dcdcdc;
+  border-bottom: 1rpx solid #dcdcdc;
+  border-bottom-left-radius: 10rpx;
+  border-top-left-radius: 10rpx;
+}
+
+.cityTab-txt-center {
+  border: 1rpx solid #dcdcdc;
+}
+
+.cityTab-txt-right {
+  border-bottom-right-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  border-right: 1rpx solid #dcdcdc;
+  border-top: 1rpx solid #dcdcdc;
+  border-bottom: 1rpx solid #dcdcdc;
+}
+
+.checked {
+  background: #e67300;
+  border: 1rpx solid #e67300;
+}
+
+.checkedItem {
+  align-self: center;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+  border-radius: 5rpx;
+  text-align: center;
+  padding: 10rpx 10rpx 10rpx 10rpx;
+  width: 145rpx;
+  background: #e67300;
+  font-size: 28rpx;
+  box-shadow: 4rpx 4rpx 2rpx #dcdcdc;
+}
+
+.cityInfo {
+  margin-top: 20rpx;
+  background: white;
+  width: 700rpx;
+  margin-left: 25rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.carInfo {
+  background: white;
+  width: 700rpx;
+  margin-left: 25rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* 175 */
+
+.p-name {
+  align-self: center;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+  text-align: center;
+  padding: 10rpx 10rpx 10rpx 10rpx;
+  width: 145rpx;
+  background: white;
+  font-size: 28rpx;
+  box-shadow: 4rpx 4rpx 2rpx #dcdcdc;
+}
+
+.cityChecked {
+  color: #e67300;
+}
+
+.car-title {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  margin-left: 10rpx;
+}
+
+.showConfirm {
+  position: fixed;
+  bottom: 20rpx;
+  z-index: 11;
+  width: 700rpx;
+  left: 25rpx;
+  display: flex;
+  justify-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 30rpx;
+}
+
+.showConfirm-btn-left {
+  text-align: center;
+  width: 255rpx;
+  border-radius: 80rpx;
+  background: white;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  color: #333;
+  border: 1rpx solid #e67300;
+}
+
+.showConfirm-btn-right {
+  text-align: center;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  width: 255rpx;
+  background: #e67300;
+  color: white;
+  border: 1rpx solid #e67300;
+  border-radius: 80rpx;
+}

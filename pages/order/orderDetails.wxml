@@ -1,0 +1,90 @@
+<!--pages/order/orderDetails.wxml-->
+<view class='title' hidden='{{orderDetail.status!=1}}'>{{orderDetail.type=="1"?"现在用车":"预约用车"}} {{orderDetail.send_time}}</view>
+<view class='parent'>
+
+  <view class='addressinfo'>
+    <view class='title_code' hidden='{{orderDetail.status==1}}'>
+      <text>{{orderDetail.send_time}}</text>
+      <text>#{{orderDetail.order_code}}</text>
+    </view>
+    <path path='{{orderDetail.path}}'></path>
+    <text class='car_type'>{{orderDetail.carTypeName}}</text>
+  </view>
+
+
+  <view class='extra line' hidden='{{orderDetail.demand==""}}'>
+    <text class='line-title'>额外需求:</text>
+    <text>{{orderDetail.demand}}</text>
+  </view>
+  <view class='remark line' hidden='{{orderDetail.remark==""}}'>
+
+    <text class='line-title'>订单备注:</text>
+    <text>{{orderDetail.remark}}</text>
+  </view>
+
+  <view class='contact line' hidden='{{orderDetail.contactser==""}}'>
+
+    <text class='line-title'>联系人:</text>
+    <text>{{orderDetail.contactser}}({{orderDetail.con_mobile}})</text>
+  </view>
+  <!-- 1 单人/企业  2物流代理 -->
+  <view class='line fee' hidden='{{orderDetail.identity=="1" }}'>
+
+    <text class='line-title'>信息费:</text>
+    <text class='line-fee'>{{orderDetail.feeName}}</text>
+    <text class='fee-return' bindtap='{{orderDetail.fee_apply == 0?"applyReturn":""}}' hidden='{{!(orderDetail.status==2||orderDetail.status==10||orderDetail.status==3||orderDetail.status==11)}}'>{{orderDetail.returnStatus}}</text>
+  </view>
+  <view class='pay line'>
+
+    <view class='pay-status'>
+      <text>{{orderDetail.payStatus}}</text>
+      <text style='font-size:26rpx;color:#999'>高速及停车场费用，根据实际产生的金额有客户支付，搬运费请与客户商议</text>
+    </view>
+    <view class='pay-money'>
+      <text class='pay-money-price'>{{orderDetail.money==0?""+orderDetail.distance+"km":"￥"+orderDetail.money}}</text>
+      <text class='pay-money-details' hidden='{{orderDetail.money==0||orderDetail.status==9||orderDetail.status==7||orderDetail.status==5||orderDetail.status==6||orderDetail.status==4}}'>运费详情</text>
+    </view>
+
+  </view>
+
+  <view wx:if='{{orderDetail.status==1}}'>
+
+    <!-- 抢单 -->
+    <image hidden='{{orderDetail.status!=1}}' class='grab-bg' src='http://res.zhangyongfa888.site/ic_order_detail_grab_bg.png' mode='aspectFit'></image>
+
+    <text hidden='{{orderDetail.status!=1}}' class='grab-text'>滑动抢单</text>
+
+    <movable-area class='movable-bg' hidden='{{orderDetail.status!=1}}'>
+      <movable-view class='movable' friction='100' x="{{x}}" animation='false' disabled='{{x>=180}}' damping='100' direction="horizontal" bindchange="onChange">
+
+        <image class='movable-img' src='http://res.zhangyongfa888.site/ic_touch_view.png' mode='aspectFit'></image>
+      </movable-view>
+    </movable-area>
+    <!-- 抢单 -->
+  </view>
+
+  <view wx:else>
+    <!-- 致电客户 -->
+    <image hidden='{{orderDetail.status==1}}' class='bottom-bg' src='http://res.zhangyongfa888.site/ic_order_detail_bottom_bg.png' mode='widthFix'></image>
+
+    <view class='bottom-txt' bindtap='bottomClick'>
+      <text class='bottom-txt-title'>{{orderDetail.bottomTitle}}</text>
+      <text class='bottom-txt-desc'>{{orderDetail.bottomDesc}}</text>
+    </view>
+  </view>
+
+
+</view>
+
+<view hidden='{{!showPayMethod}}'>
+  <pay-method payMoney='{{value}}' showSixPwd='{{!showPayMethod}}' bind:banlancePay="banlancePay" bind:WxPay="WxPay" bind:closePayMethod="closePayMethod"></pay-method>
+</view>
+<!-- <view class='zhezhao' hidden='{{!showInfoFees}}'> </view> -->
+<modal hidden='{{!showInfoFees}}' title='信息费' confirm-text="支付" cancel-text="取消" bindcancel="payfee_cancel" bindconfirm="payfee_confirm">
+  <view class='fee-input'>
+    <text>￥</text>
+    <input placeholder='请输入信息费' bindinput='payfee_input' maxlength='5' type='number'></input>
+  </view>
+  <button></button>
+
+</modal>

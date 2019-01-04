@@ -1,4 +1,4 @@
-// pages/cisdomshipper/wallet/setpassword.js
+// pages/wallet/setpassword.js
 Page({
 
   /**

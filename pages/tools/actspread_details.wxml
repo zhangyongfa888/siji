@@ -1,2 +1,8 @@
 <!--pages/tools/actspread_details.wxml-->
-<text>pages/tools/actspread_details.wxml</text>
+<view >
+
+<image class='upload-img' src='{{detail.firstPic}}' mode='aspectFit'></image>
+
+<image class='upload-img' src='{{detail.secondPic}}' mode='aspectFit'></image>
+
+</view>

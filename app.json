@@ -26,14 +26,15 @@
     "pages/wallet/setpassword",
     "pages/wallet/bindbankcard",
     "pages/tools/message",
-    "pages/tools/settingpwd",
     "pages/tools/about",
     "pages/tools/rule",
     "pages/index/chooseType",
     "pages/route/chooseAddress",
     "pages/tools/submitQuestion",
     "pages/tools/checkQuestions",
-    "pages/tools/actspread_details"
+    "pages/tools/actspread_details",
+    "pages/order/orderDetails",
+    "pages/tools/actspread_list"
   ],
   "window": {
     "backgroundTextStyle": "light",
