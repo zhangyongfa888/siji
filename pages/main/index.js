@@ -137,8 +137,15 @@ Page({
         });
       },
     })
+var pages=    getCurrentPages();
 
-
+console.log("pages",pages);
+    // wx.setTabBarItem({
+    //   index: 5,
+    //   text: 'text',
+    //   iconPath: '../../src/ic_tab_qiangdan.png',
+    //   selectedIconPath: 'index'
+    // })
   },
   route: function(e) {
     wx.navigateTo({

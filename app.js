@@ -7,12 +7,7 @@ App({
     // 登录
     wx.login({
       success: res => {
-        //{errMsg: "login:ok", code: "0714Qyqz0zg2he1xqPrz0BpJqz04Qyqw"}
         console.log("login", res);
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        // wx.request({
-        //   url: 'http://118.31.74.225/phphyb2018/public/index.php/driverapi/wx/',
-        // })
         cisdom.request("getOpenId", {
           code: res.code
         }, {
@@ -49,9 +44,7 @@ App({
       }
     })
 
-    // setTimeout(function() {
-    //   wx.hideLoading()
-    // }, 3000)
+
   },
   globalData: {
     userInfo: null,

@@ -36,6 +36,7 @@ function getData(that, type, page) {
         var citys = data[i].city;
 
         var path = [];
+
         for (var j = 0; j < citys.length; j++) {
           var city = citys[j];
           path.push({
